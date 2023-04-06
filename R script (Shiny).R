@@ -1,0 +1,5 @@
+library(shiny)
+library(readxl)
+read=read_excel("D:/Intern (R project)/R Shiny Assignment.xlsx")
+library(shinydashboard)
+UI=dashboardPage(dashboardHeader(title="Wei Kian's Shiny App"),dashboardSidebar())
