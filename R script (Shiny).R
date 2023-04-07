@@ -1,7 +1,8 @@
 library(shiny)
 library(ggplot2)
 
-ui=fluidPage(sidebarPanel(theme = "united",
+ui=fluidPage(tags$h3("R Shiny Assignment"),
+             sidebarPanel(theme = "united",
              fileInput("file", "Upload Your CSV file here"),
              sliderInput("TF", "Tail Factor", value=1.1, min=0, max=10, step=0.1)),
              tabsetPanel(tabPanel("Cumulative Paid Claims ($) - Table",tableOutput("table")),
