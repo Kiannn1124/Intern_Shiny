@@ -25,7 +25,7 @@ server=function(input, output, session){
      return(table_hehe)
    })
    output$mytable=renderTable({
-     calculation_hehe
+     calculation_hehe()
    })
 }
   
