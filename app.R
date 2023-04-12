@@ -33,25 +33,25 @@ server=function(input, output){
        Dev4=sum(data_hehe()$Amount_of_Claims_Paid[data_hehe()$Loss_Year == lossyear & data_hehe()$Development_Year %in% c(1,2,3,4)])
       result_table_hehe[i, c("Dev1", "Dev2", "Dev3", "Dev4")]=c(Dev1, Dev2, Dev3, Dev4)
      }
-     result_table_hehe$Dev2[result_table_hehe$Loss_Year == base_year() + 2] <- 
+     result_table_hehe$Dev2[result_table_hehe$Loss_Year == base_year() + 2] = 
        (sum(result_table_hehe$Dev2[result_table_hehe$Loss_Year %in% c(base_year(), base_year() + 1)]) / 
           sum(result_table_hehe$Dev1[result_table_hehe$Loss_Year %in% c(base_year(), base_year() + 1)])) *
        result_table_hehe$Dev1[result_table_hehe$Loss_Year == base_year() + 2]
      
-     result_table_hehe$Dev3[result_table_hehe$Loss_Year == base_year() + 1] <- 
+     result_table_hehe$Dev3[result_table_hehe$Loss_Year == base_year() + 1] =
        (sum(result_table_hehe$Dev3[result_table_hehe$Loss_Year == base_year()]) / 
           sum(result_table_hehe$Dev2[result_table_hehe$Loss_Year == base_year()])) *
        result_table_hehe$Dev2[result_table_hehe$Loss_Year == base_year() + 1]
      
-     result_table_hehe$Dev3[result_table_hehe$Loss_Year == base_year() + 2] <- 
-       (sum(result_table_hehe$Dev3[result_table_hehe$Loss_Year %in% c(base_year(), base_year() + 1)]) / 
-          sum(result_table_hehe$Dev2[result_table_hehe$Loss_Year %in% c(base_year(), base_year() + 1)])) *
+     result_table_hehe$Dev3[result_table_hehe$Loss_Year == base_year() + 2] = 
+       (sum(result_table_hehe$Dev3[result_table_hehe$Loss_Year == base_year() + 1]) / 
+          sum(result_table_hehe$Dev2[result_table_hehe$Loss_Year == base_year() + 1])) *
        result_table_hehe$Dev2[result_table_hehe$Loss_Year == base_year() + 2]
      
   
-       result_table_hehe$Dev4[result_table_hehe$Loss_Year == base_year()] <- result_table_hehe$Dev3[result_table_hehe$Loss_Year == base_year()] * tail_f()
-       result_table_hehe$Dev4[result_table_hehe$Loss_Year == base_year() + 1] <- result_table_hehe$Dev3[result_table_hehe$Loss_Year == base_year() + 1] * tail_f()
-       result_table_hehe$Dev4[result_table_hehe$Loss_Year == base_year() + 2] <- result_table_hehe$Dev3[result_table_hehe$Loss_Year == base_year() + 2] * tail_f()
+       result_table_hehe$Dev4[result_table_hehe$Loss_Year == base_year()] = result_table_hehe$Dev3[result_table_hehe$Loss_Year == base_year()] * tail_f()
+       result_table_hehe$Dev4[result_table_hehe$Loss_Year == base_year() + 1] = result_table_hehe$Dev3[result_table_hehe$Loss_Year == base_year() + 1] * tail_f()
+       result_table_hehe$Dev4[result_table_hehe$Loss_Year == base_year() + 2] = result_table_hehe$Dev3[result_table_hehe$Loss_Year == base_year() + 2] * tail_f()
        
        return(result_table_hehe)
      
@@ -64,7 +64,7 @@ server=function(input, output){
    })
    output$myplot=renderPlot({
 
-       data_long <- melt(calculation_hehe(), id.vars = "Loss_Year",
+       data_long = melt(calculation_hehe(), id.vars = "Loss_Year",
                          variable.name = "Development_Year", 
                          value.name = "Cumulative_Paid_Claim")
        
